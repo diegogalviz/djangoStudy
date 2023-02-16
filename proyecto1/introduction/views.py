@@ -1,13 +1,24 @@
 import datetime
-
 from django.http import HttpResponse
 from django.template import Template, Context
 
+
+class Persona(object):
+    def __int__(self, nombre, apellido):
+        self.nombre = nombre
+        self.apellido = apellido
+
+
 def saludo(request):  # primera vista
+    nombre = 'Diego '
+    apellido = 'Galviz Velandia'
+    # per = Persona( nombre , apellido )
+    ahora = datetime.datetime.now()
     doc_externo = open(r'C:\Users\ING ANNETH LUNA ROZO\Desktop\djangoStudy\proyecto1\plantillas\plantilla1.html')
-    plt= Template(doc_externo.read())
+    plt = Template(doc_externo.read())
     doc_externo.close()
-    ctx = Context()
+    ctx = Context({'nombre_persona': nombre, 'apellido_persona': apellido, 'ahora': ahora})
+
     documento = plt.render(ctx)
     return HttpResponse(documento)
 
@@ -32,7 +43,7 @@ def dameFecha(request):
 
 
 def calculaEdad(request, edad, year):
-    periodo = year-2023
+    periodo = year - 2023
     edadFutura = edad + periodo
 
     documento = f'<html><body><h2> En el año {year} tendras {edadFutura} </h2></body></html>'
