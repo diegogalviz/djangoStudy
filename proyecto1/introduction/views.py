@@ -1,26 +1,32 @@
 import datetime
 from django.http import HttpResponse
-from django.template import Template, Context
+# from django.template import Template, Context
+from django.template.loader import get_template
+from django.shortcuts import render
 
 
 class Persona(object):
-    def __int__(self, nombre, apellido):
+    def __init__(self, nombre, apellido):
         self.nombre = nombre
         self.apellido = apellido
 
 
 def saludo(request):  # primera vista
-    nombre = 'Diego '
-    apellido = 'Galviz Velandia'
-    # per = Persona( nombre , apellido )
-    ahora = datetime.datetime.now()
-    doc_externo = open(r'C:\Users\ING ANNETH LUNA ROZO\Desktop\djangoStudy\proyecto1\plantillas\plantilla1.html')
-    plt = Template(doc_externo.read())
-    doc_externo.close()
-    ctx = Context({'nombre_persona': nombre, 'apellido_persona': apellido, 'ahora': ahora})
+    temas=  ['React', 'Django', 'PostgreSQL']
 
-    documento = plt.render(ctx)
-    return HttpResponse(documento)
+    nombre = 'Salomé '
+    apellido = 'Galviz Velandia'
+    per = Persona(nombre, apellido)
+    ahora = datetime.datetime.now()
+    # doc_externo = open(r'C:\Users\ING ANNETH LUNA ROZO\Desktop\djangoStudy\proyecto1\templates\plantilla1.html')
+    # plt = Template(doc_externo.read())
+    # doc_externo.close()
+    # doc_externo = get_template('plantilla1.html')
+    # ctx = Context({'nombre_persona': per.nombre, 'apellido_persona': per.apellido, 'ahora': ahora, 'temas': temas})
+    # documento = doc_externo.render(ctx)
+    # return HttpResponse(documento)
+    ctx = {'nombre_persona': per.nombre, 'apellido_persona': per.apellido, 'ahora': ahora, 'temas': temas}
+    return render(request, 'plantilla1.html', ctx)
 
 
 def despedida(request):

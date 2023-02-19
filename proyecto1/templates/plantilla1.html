@@ -1,0 +1,31 @@
+<html>
+<body>
+    <h1> Hola diego otra vez<h1>
+
+
+<!--        esto esta super genial django es genial-->
+    {% if nombre_persona == 'Diego' %}
+        <p>El curso lo dicta el profesor titular</p>
+    {% else %}
+        <p>El curso lo imparte el profesor suplente</p>
+
+    {% endif %}
+
+    <p>nombre de la persona es {{nombre_persona|upper}} {{apellido_persona.upper}}</p>
+    <p>fecha actual es {{ahora.day}} / {{ahora.month}} / {{ahora.year}}</p>
+    <p><strong>Temas del curso: </strong></p>
+    <p>
+        <ul>
+            {% if temas %}
+                {% for tema in temas %}
+                    <li>{{tema|first|lower}}</li>
+                {% endfor %}
+
+            {% else %}
+                <p>no hay ningun tema por aprender</p>
+            {% endif %}
+        </ul>
+    </p>
+
+<body>
+<html>
