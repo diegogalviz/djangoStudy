@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {#    <link rel="stylesheet" href="../stylesheets/base.css">#}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-continer {
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #878787;
+            padding: 0 20px;
+            color: black;
+            list-style: none;
+            padding: 25px;
+            font-family: Roboto, sans-serif;
+            font-size: 18px;
+
+        }
+    </style>
+    <title> {% block title %} {% endblock %} </title>
+</head>
+<body>
+
+<ul class="nav-continer">
+    <li>Home</li>
+    <li>Servicios</li>
+    <li>Contacto</li>
+    <li>Acerca de</li>
+    <li>Quienes somos</li>
+</ul>
+
+</body>
+</html>

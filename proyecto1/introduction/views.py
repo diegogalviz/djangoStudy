@@ -12,7 +12,7 @@ class Persona(object):
 
 
 def saludo(request):  # primera vista
-    temas=  ['React', 'Django', 'PostgreSQL']
+    temas = ['React', 'Django', 'PostgreSQL']
 
     nombre = 'Salomé '
     apellido = 'Galviz Velandia'
@@ -55,3 +55,12 @@ def calculaEdad(request, edad, year):
     documento = f'<html><body><h2> En el año {year} tendras {edadFutura} </h2></body></html>'
 
     return HttpResponse(documento)
+
+
+def home(request):
+    return HttpResponse('este es el home')
+
+def curso(request):
+    fecha_actual = datetime.datetime.now()
+    ctx= {'dameFecha': fecha_actual}
+    return render(request, 'cursoC.html',ctx)
