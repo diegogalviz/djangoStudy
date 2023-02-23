@@ -16,7 +16,7 @@ class Articulo(models.Model):
     precio = models.IntegerField()
 
     def __str__(self):
-        return f'el nombre del articulo es: {self.nombre}, la seccion del articulo es:{self.seccion}, el precio del articulo es{self.precio}'
+        return f'el nombre del articulo es: {self.nombre}, la seccion del articulo es: {self.seccion}, el precio del articulo es: {self.precio}'
 
 
 class Pedidos(models.Model):

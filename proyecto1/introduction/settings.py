@@ -54,7 +54,7 @@ ROOT_URLCONF = 'introduction.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\ING ANNETH LUNA ROZO\Desktop\djangoStudy\proyecto1\templates'],
+        'DIRS': [r'C:\Users\DIEGO GALVIZ\Desktop\djangoStudy\proyecto1\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
