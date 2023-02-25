@@ -25,7 +25,7 @@ class Articulo(models.Model):
 class Pedidos(models.Model):
     numero = models.IntegerField()
     fecha = models.DateField()
-    entrgado = models.BooleanField()
+    entregado = models.BooleanField()
 
     def __str__(self):
         return f'{self.numero} - {self.fecha}'
