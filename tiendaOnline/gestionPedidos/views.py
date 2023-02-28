@@ -14,6 +14,7 @@ def buscar(request):
         # mensaje = f'Articulo buscado: {request.GET["Articulo"]} '
         producto = request.GET['Articulo']
         articulos = Articulo.objects.filter(nombre__icontains=producto)
+        print(producto)
 
         ctx = {'articulos': articulos, 'query': producto}
 
