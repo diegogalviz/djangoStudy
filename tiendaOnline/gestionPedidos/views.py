@@ -13,14 +13,25 @@ def buscar(request):
     if request.GET['Articulo']:
         # mensaje = f'Articulo buscado: {request.GET["Articulo"]} '
         producto = request.GET['Articulo']
-        articulos = Articulo.objects.filter(nombre__icontains=producto)
-        print(producto)
 
-        ctx = {'articulos': articulos, 'query': producto}
+        if len(producto) > 20:
+            mensaje = 'el nombre es demaciado largo'
 
-        return render(request, 'resultados_busqueda.html', ctx)
+        else:
+            articulos = Articulo.objects.filter(nombre__icontains=producto)
+            print(producto)
+
+            ctx = {'articulos': articulos, 'query': producto}
+
+            return render(request, 'resultados_busqueda.html', ctx)
 
     else:
         mensaje = ' no has introducido nada'
 
     return HttpResponse(mensaje)
+
+def contacto(request):
+
+    if request.method == 'POST':
+        return HttpResponse('gracias por enviar su mensaje')
+    return render(request, 'contacto.html')
