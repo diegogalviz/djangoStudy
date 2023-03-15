@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'home',
     'contacto',
     'servicios',
+    'blog',
+    'tienda',
 
 ]
 
